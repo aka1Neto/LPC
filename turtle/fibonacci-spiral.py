@@ -7,7 +7,7 @@ def fibonacci_seq(n):
 
     for i in range(n - 2):
         sequence.append(sequence[i] + sequence[i+1]);
-        
+
     return sequence;
 
 # Draw a square with a side length equals to length
@@ -56,6 +56,7 @@ while True:
         break;
 
 pen = turtle.Turtle();
-scale = 10;
+scale = 5;
+pen.speed(100)
 make_spiral(n);
 turtle.done();
