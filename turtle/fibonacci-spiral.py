@@ -56,7 +56,6 @@ while True:
         break;
 
 pen = turtle.Turtle();
-scale = 5;
-pen.speed(100)
+scale = 10;
 make_spiral(n);
 turtle.done();
