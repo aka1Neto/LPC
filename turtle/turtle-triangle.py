@@ -3,7 +3,7 @@ import turtle
 def draw_triangle(x, y):
     pen.penup();
 
-    #Points turtle to click
+    # Points turtle to click
     pen.goto(x, y);
 
     pen.pendown();
@@ -13,6 +13,10 @@ def draw_triangle(x, y):
         pen.left(120);
 
 pen = turtle.Turtle();
+
+# Gets the coordinates of the mouse and calls
+# the function with theses values as parameters
 turtle.onscreenclick(draw_triangle);
 turtle.listen()
+
 turtle.done();

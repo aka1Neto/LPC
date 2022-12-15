@@ -1,6 +1,7 @@
 from random import choice
 import turtle
 
+# Defines the finish line for each turtle
 def define_home():
 
     player1.shape('turtle');
@@ -18,6 +19,7 @@ def define_home():
     player2.circle(40);    
     
 
+# Put the turtles at the startin line
 def position_turtle():
 
     player1.penup();
@@ -27,15 +29,20 @@ def position_turtle():
     player2.goto(-200, -100);
 
 
+# Plays the game itself
 def game():
     dice = [1, 2, 3, 4, 5, 6];
+
     while True:
+
         if player1.position() >= (200, 100):
             print("Player 1 won!!");
             break;
+
         elif player2.position() >= (200, -100):
             print("Player 2 won!!");
             break;
+
         else:
             input("Player 1 turn. Press 'Enter' to roll the dice.");
             steps_number = (choice(dice) * 20);
@@ -59,4 +66,5 @@ player2 = turtle.Turtle();
 define_home();
 position_turtle();
 game();
+
 turtle.done();

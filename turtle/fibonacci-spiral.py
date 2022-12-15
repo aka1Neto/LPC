@@ -1,8 +1,7 @@
 import turtle
-import random
 
-# Creates n terms of the fibonacci function
-def fibonacci_seq(n):
+# Creates n terms of the fibonacci sequence
+def create_fibonacci(n):
     sequence = [1,1];
 
     for i in range(n - 2):
@@ -42,7 +41,7 @@ def draw_spiral(n, sequence):
 
 # Plot the squares with the spiral
 def make_spiral(n):
-    fib_sequence = fibonacci_seq(n);
+    fib_sequence = create_fibonacci(n);
     pen.pencolor("#000");
 
     make_squares(n, fib_sequence);
