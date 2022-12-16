@@ -1,4 +1,4 @@
-import os
+from winsound import PlaySound, SND_FILENAME
 import turtle
 
 # draw screen
@@ -85,43 +85,42 @@ while True:
 
     # collision with the upper wall
     if ball.ycor() > 290:
-        os.system("afplay bounce.wav&")
+        PlaySound("bounce.wav", SND_FILENAME)
         ball.sety(290)
         ball.dy *= -1
 
     # collision with lower wall
     if ball.ycor() < -290:
-        os.system("afplay bounce.wav&")
+        PlaySound("bounce.wav", SND_FILENAME)
         ball.sety(-290)
         ball.dy *= -1
 
-    def update_score(score):
-        score += 1
+    def update_score():
         hud.clear()
         hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
-        os.system("afplay 258020__kodack__arcade-bleep-sound.wav&")
+        PlaySound("258020__kodack__arcade-bleep-sound.wav", SND_FILENAME)
         ball.goto(0, 0)
         ball.dx *= -1
-
-        return score
 
 
     # collision with left wall
     if ball.xcor() < -390:
-        score_2 = update_score(score_2)
+        score_2 += 1
+        update_score()
 
     # collision with right wall
     if ball.xcor() > 390:
-        score_1 = update_score(score_1)
+        score_1 += 1
+        update_score()
 
     # collision with the paddle 1
     if -330 > ball.xcor() > -350 \
             and paddle_1.ycor() + 50 > ball.ycor() > paddle_1.ycor() - 50:
         ball.dx *= -1
-        os.system("afplay bounce.wav&")
+        PlaySound("bounce.wav", SND_FILENAME)
 
     # collision with the paddle 2
     if 330 < ball.xcor() < 350 \
             and paddle_2.ycor() + 50 > ball.ycor() > paddle_2.ycor() - 50:
         ball.dx *= -1
-        os.system("afplay bounce.wav&")
+        PlaySound("bounce.wav", SND_FILENAME)
