@@ -212,20 +212,20 @@ def main(main_score, main_balls):
             paddle_sound.play()
             angle = ball.rect.center[0] - paddle.rect.center[0]
             if angle > 0:
-                if angle <= 27:
-                    ball.rect.x -= ball.velocity[0] * 3
+                if angle <= 28:
+                    ball.velocity[0] += ball.velocity[0] + 3
                 if angle <= 18:
-                    ball.rect.x -= ball.velocity[0] * 2
+                    ball.velocity[0] += ball.velocity[0] + 2
                 if angle <= 9:
-                    ball.rect.x -= ball.velocity[0] * 1
+                    ball.velocity[0] += ball.velocity[0] + 1
 
             else:
-                if angle >= -27:
-                    ball.rect.x += ball.velocity[0] * 3
+                if angle >= -28:
+                    ball.velocity[0] += ball.velocity[0] + 3
                 if angle >= 18:
-                    ball.rect.x += ball.velocity[0] * 2
+                    ball.velocity[0] += ball.velocity[0] + 2
                 if angle >= 9:
-                    ball.rect.x += ball.velocity[0] * 1
+                    ball.velocity[0] += ball.velocity[0] + 1
 
         brick_collision_list = pygame.sprite.spritecollide(ball, all_bricks, False)
         for brick in brick_collision_list:
@@ -238,6 +238,7 @@ def main(main_score, main_balls):
                         ball.velocity[0] += 1
                         ball.velocity[1] += 1
             if 380.5 > brick.rect.y > 338.5:
+                ball.velocity[0] = 4;
                 main_score += 1
                 brick.kill()
             elif 338.5 > brick.rect.y > 294:
