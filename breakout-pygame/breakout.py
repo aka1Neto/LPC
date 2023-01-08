@@ -213,19 +213,19 @@ def main(main_score, main_balls):
             angle = ball.rect.center[0] - paddle.rect.center[0]
             if angle > 0:
                 if angle <= 28:
-                    ball.velocity[0] += ball.velocity[0] + 3
+                    ball.velocity[0] += 9
                 if angle <= 18:
-                    ball.velocity[0] += ball.velocity[0] + 2
+                    ball.velocity[0] += 7
                 if angle <= 9:
-                    ball.velocity[0] += ball.velocity[0] + 1
+                    ball.velocity[0] += 5
 
             else:
                 if angle >= -28:
-                    ball.velocity[0] += ball.velocity[0] + 3
+                    ball.velocity[0] -= 9
                 if angle >= 18:
-                    ball.velocity[0] += ball.velocity[0] + 2
+                    ball.velocity[0] -= 7
                 if angle >= 9:
-                    ball.velocity[0] += ball.velocity[0] + 1
+                    ball.velocity[0] -= 5
 
         brick_collision_list = pygame.sprite.spritecollide(ball, all_bricks, False)
         for brick in brick_collision_list:
